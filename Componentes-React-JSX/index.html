@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Componentes con React + JSX</title>
+	</head>
+	<body>
+		<h1>Componentes con React + JSX</h1>
+		
+		<div id="app"></div>
+
+		<script src="js/react.production.min.js"></script>
+  		<script src="js/react-dom.production.min.js"></script>
+  		<script src="js/babel.min.js"></script>
+		<script type="text/babel">
+			class Saludo extends React.Component {
+
+				saludar(){
+					alert(`Espero que tu ${this.props.dia} termine bien!`)
+				}
+
+				render(){
+					return <blockquote onClick={this.saludar.bind(this)}>Hola {this.props.dia}</blockquote>
+				}
+			}
+			///////////////////////////////////////////////
+
+			ReactDOM.render(
+				[
+					<Saludo dia="Martes" />,
+					<Saludo dia="Jueves" />,
+					<Saludo dia="Sabado" />
+				],
+				document.querySelector("#app")
+			)
+		</script>
+	</body>
+</html>
